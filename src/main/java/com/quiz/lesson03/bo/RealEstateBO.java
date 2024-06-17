@@ -43,4 +43,10 @@ public class RealEstateBO {
 		return realEstateMapper.insertRealEstateAsField(
 				realtorId, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
 	}
+	
+	// input: id, price
+	// output: 성공한 행의 개수(int)
+	public int updateRealEstateById(int id, int price, String type) {
+		return realEstateMapper.updateRealEstateById(id, price, type);
+	}
 }
