@@ -1,5 +1,7 @@
 package com.quiz.lesson03.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +22,25 @@ public class RealEstateBO {
 	
 	// input: rentPrice(필수)
 	// output: List<RealEstate>
-	public RealEstate getRealEstateListByRentPrice(int rentPrice) {
+	public List<RealEstate> getRealEstateListByRentPrice(int rentPrice) {
 		return realEstateMapper.selectRealEstateListByRentPrice(rentPrice);
 	}
 	
-	// input: rentPrice(필수)
+	// input: area, price
 	// output: List<RealEstate>
-	public RealEstate getRealEstateListByAreaAndPrice(int area, int price) {
+	public List<RealEstate> getRealEstateListByAreaAndPrice(int area, int price) {
 		return realEstateMapper.selectRealEstateListByAreaAndPrice(area, price);
+	}
+	
+	// input: RealEstate
+	// output: 성공한 행의 개수
+	public int addRealEstate (RealEstate realEstate){
+		return realEstateMapper.insertRealEstate(realEstate);
+	}
+	
+	public int addRealEstateAsField (int realtorId, String address,
+			int area, String type, int price, Integer rentPrice){
+		return realEstateMapper.insertRealEstateAsField(
+				realtorId, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
 	}
 }
