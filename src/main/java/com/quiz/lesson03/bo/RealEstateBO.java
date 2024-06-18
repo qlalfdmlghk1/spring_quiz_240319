@@ -46,7 +46,11 @@ public class RealEstateBO {
 	
 	// input: id, price
 	// output: 성공한 행의 개수(int)
-	public int updateRealEstateById(int id, int price, String type) {
-		return realEstateMapper.updateRealEstateById(id, price, type);
+	public int updateRealEstateById(int id, String type, int price) {
+		return realEstateMapper.updateRealEstateById(id, type, price);
+	}
+	
+	public int deleteRealEstateById(int id) {
+		return realEstateMapper.deleteRealEstateById(id);
 	}
 }
