@@ -14,7 +14,7 @@ public class SellerBO {
 	
 	// input: 파라미터 3개
 	// output: X
-	public void addSeller(String nickname, String profileImageUrl, Double temperature) {
+	public void addSeller(String nickname, String profileImageUrl, double temperature) {
 		sellerMapper.insertSeller(nickname, profileImageUrl, temperature);
 	}
 	
@@ -23,4 +23,12 @@ public class SellerBO {
 	public Seller getLatestSeller() {
 		return sellerMapper.selectLatestSeller();
 	}
+
+	// input: X
+	// output: Seller(채워져있거나 null)
+	public Seller getLatestSellerById(int id) {
+		return sellerMapper.selectLatestSellerById(id);
+	}
+	
+	
 }

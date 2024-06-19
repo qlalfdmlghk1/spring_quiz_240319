@@ -11,6 +11,7 @@
 	<div class="container">
 		<h1>판매자 추가</h1>
 		
+		<!-- insert 요청이면 무조건 post -->
 		<form method="post" action="/lesson04/quiz01/add-seller">
 			<div class="form-group">
 				<label for="nickname">닉네임</label>
@@ -22,10 +23,10 @@
 			</div>
 			<div class="form-group">
 				<label for="temperature">온도</label>
-				<input type="text" id="temperature" name="temper	ature" class="form-control col-4">
+				<input type="text" id="temperature" name="temperature" class="form-control col-4">
 			</div>
 			
-			<input type="submit" value="추가" class="btn btn-success">
+			<button type="submit" class="btn btn-primary">추가</button>
 		</form>
 	</div>
 </body>
