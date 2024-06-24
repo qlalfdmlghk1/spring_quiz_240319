@@ -43,11 +43,11 @@
 					<td th:switch="${member.grade}">
 						<span th:case="'VIP'" th:text="${member.grade}" class="text-danger"></span>
 						<span th:case="'GOLD'" th:text="${member.grade}" class="text-warning"></span>
-						<span th:case="'*'" th:text="${member.grade}"></span>  <!-- *: default 값 -->			
+						<span th:case="'BASIC'" th:text="${member.grade}"></span>  <!-- *: default 값 -->			
 					</td>
 					<td th:text="${member.point}">
-						<span th:if="${member.point >= 5000}" th:text="${member.point}" class="text-primary"></span>
-						<span th:unless="${member.point >= 5000}" th:text="${member.point}"></span> -->
+						<span th:if="${member.point >= 5000}" th:text="${member.point} + 'P'" class="text-primary"></span>
+						<span th:unless="${member.point >= 5000}" th:text="${member.point} + 'P'"></span>
 					</td>
 					<!-- <td th:if="${member.point >= 5000}" th:text="${member.point}" class="text-primary"></td>
 					<td th:unless="${member.point >= 5000}" th:text="${member.point}"></td> -->
