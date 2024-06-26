@@ -20,7 +20,8 @@ public class WeatherHistoryBO {
 		return weatherHistoryMapper.selectWeatherHistoryList(); // 컨트롤러한테 전달
 	}
 	
-	public void addweatherHistory(String date, String weather, double temperatures, double precipitation, String microDust, String windSpeed) {
-		weatherHistoryMapper.insertweatherHistory(date, weather, temperatures, precipitation, microDust, windSpeed);
+	public void addweatherHistory(String date, String weather, String microDust, 
+			double temperatures, double precipitation, double windSpeed) {
+		weatherHistoryMapper.insertWeatherHistory(date, weather, microDust, temperatures, precipitation, windSpeed);
 	}
 }

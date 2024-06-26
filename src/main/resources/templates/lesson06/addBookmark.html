@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container mb-3">
+		<div>
+			<h3>제목</h3>
+			<input type="text" id="title" name="title" class="form-control">
+		</div>
+		<div>
+			<h3>주소</h3>
+			<input type="text" id="address" name="address" class="form-control">
+		</div>
+		<div>
+			<input type="button" id="addBtn" value="추가" class="btn btn-success col-12">
+		</div>
+	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#addBtn").on('click', function() {
+				let title = $("#title").val().trim();
+				if (title.length < 1) {
+					alert("제목을 입력하세요");
+					return;  // form 태크가 submit이면 return false로 해야 잡힌다.
+				}
+				
+				let address = $("#address").val().trim();
+				if (!address) {
+					alert("주소를 입력하세요");
+					return;
+				}
+				
+				console.log(title);
+				console.log(address);
+				
+				$.ajax({
+					// request
+					type:"POST"
+					, url:"/lesson06/add-bookmark"
+					, data:{"title":title, "address":address} 
+					
+					// response
+					// callback 함수
+					, success: function(data) { // data 파라미터: 응답값(String)
+						// alert(data);
+						if (data == "성공") {
+							location.href = "/lesson06/after-add-bookmark-view";
+						}
+					}
+					, error: function(xhr, status, error) {
+						alert(xhr);
+						alert(status);
+						alert(error);
+					}	
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -11,11 +11,11 @@ import com.quiz.weather_history.domain.WeatherHistory;
 public interface WeatherHistoryMapper {
 	public List<WeatherHistory> selectWeatherHistoryList();
 	
-	public void insertweatherHistory(
+	public int insertWeatherHistory(
 			@Param("date") String date, 
 			@Param("weather") String weather, 
+			@Param("microDust") String microDust, 
 			@Param("temperatures") double temperatures, 
 			@Param("precipitation") double precipitation, 
-			@Param("microDust") String microDust, 
-			@Param("windSpeed") String windSpeed);
+			@Param("windSpeed") double windSpeed);
 }

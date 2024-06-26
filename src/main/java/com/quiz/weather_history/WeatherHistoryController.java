@@ -1,5 +1,6 @@
 package com.quiz.weather_history;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.weather_history.bo.WeatherHistoryBO;
 import com.quiz.weather_history.domain.WeatherHistory;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 @RequestMapping("/weather-history")
 @Controller
@@ -42,17 +45,19 @@ public class WeatherHistoryController {
 	// 날씨를 추가 기능  /weather-history/add-weather
 	@PostMapping("/add-weather")
 	public String addWeather(
-			@RequestParam("date") String date,
+			// @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,  Date 형식으로 사용하려면 다음과 같은 @있어야 한다,
+			@RequestParam("date") String date, // LocalDate 여도 된다.
 			@RequestParam("weather") String weather,
+			@RequestParam("microDust") String microDust,
 			@RequestParam("temperatures") double temperatures,
 			@RequestParam("precipitation") double precipitation,
-			@RequestParam("microDust") String microDust,
-			@RequestParam("windSpeed") String windSpeed) {
+			@RequestParam("windSpeed") double windSpeed,
+			HttpServletResponse response) {
 		
 		// db insert
-		weatherHistoryBO.addweatherHistory(date, weather, temperatures, precipitation, microDust, windSpeed);
+		weatherHistoryBO.addweatherHistory(date, weather, microDust, temperatures, precipitation, windSpeed);
 		
-		// 성공 화면 이동		
-		return "weather_history/weatherList";
+		// redirect => 날씨 목록 이동
+		return "redirect:/weather-history/add-weather-view";
 	}
 }
