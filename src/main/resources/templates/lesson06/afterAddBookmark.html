@@ -10,5 +10,21 @@
 </head>
 <body>
 	<h1>즐겨 찾기 목록</h1>
+	<table class="table text-center">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>제목</th>
+				<th>주소</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="bookmark, status : ${bookmarkList}">
+				<td th:text="${status.count}"></td>
+				<td th:text="${bookmark.title}"></td>
+				<td th:text="${bookmark.address}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

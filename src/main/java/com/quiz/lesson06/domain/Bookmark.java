@@ -1,4 +1,4 @@
-package com.quiz.lesson06.bo;
+package com.quiz.lesson06.domain;
 
 import java.time.LocalDateTime;
 
