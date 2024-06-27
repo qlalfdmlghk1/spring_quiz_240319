@@ -14,11 +14,15 @@ public class BookmarkBO {
 	@Autowired
 	private BookmarkMapper bookmarkMapper;
 	
+	// input: X
+	// output: List<Bookmark>
 	public List<Bookmark> getBookmarkList() {
 		return bookmarkMapper.selectBookmarkList(); // 컨트롤러한테 전달
 	}
 	
-	public void addBookmark(String title, String address) {
-		bookmarkMapper.insertBookmark(title, address);
+	// input: name, url
+	// output: X
+	public void addBookmark(String name, String url) {
+		bookmarkMapper.insertBookmark(name, url);
 	}
 }

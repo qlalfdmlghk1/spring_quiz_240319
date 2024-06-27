@@ -13,7 +13,6 @@ public interface BookmarkMapper {
 	public List<Bookmark> selectBookmarkList();
 	
 	public int insertBookmark(
-			@Param("title") String title,
-			@Param("address") String address);
-	
+			@Param("name") String name,
+			@Param("url") String url);
 }
