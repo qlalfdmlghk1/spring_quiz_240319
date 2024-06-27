@@ -78,6 +78,37 @@
 					}	
 				}); 
 			}); //-- 추가 버튼 이벤트 끝
+			
+			
+			// 중복확인 버튼 클릭
+    		$("#urlCheckBtn").on('click', function() {
+    			// alert("중복확인");
+    			// nameStatusArea 초기화 하고 시작
+    			$("#urlStatusArea").empty(); // 자식 태그 모두 비움
+    			
+    			let url = $("#url").val().trim();
+
+    			// AJAX 중복 확인(DB)
+    			$.ajax({
+    				// request
+    				type:"GET" // GET이면 생략 가능
+    				, url:"/lesson06/is-duplication-url"
+    				, data:{"url":url}
+    				
+    				// response
+    				, success:function(data) {
+    					// {"code":200, "is_duplication":true} => 중복
+    					if (data.is_duplication == true) {
+    						$("#urlStatusArea").append('<span class="text-danger">중복된 url 입니다.</span>');
+    					} else {
+    						$("#urlStatusArea").append('<span class="text-danger">저장 가능한 url 입니다.</span>');
+    					}
+    				}
+    				, error:function(error) {
+    					alert("url 중복확인에 실패했습니다.");
+    				}
+    			});
+    		});
 		}); //-- ready 끝
 	</script>
 </body>

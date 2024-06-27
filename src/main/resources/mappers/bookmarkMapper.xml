@@ -13,7 +13,7 @@
  			`bookmark`
  	</select>
  	
- 	<insert id="insertBookmark" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+ 	<insert id="insertBookmark" parameterType="map">
  		INSERT INTO `bookmark`
 		(
 			`name`
@@ -29,5 +29,14 @@
 			, NOW()		
 		)
  	</insert>
+ 	
+ 	<select id="isDuplicationByUrl" parameterType="string" resultType="boolean">
+		SELECT
+			COUNT(*)
+		FROM
+			`bookmark`
+		WHERE
+			`url` = #{url}
+	</select>
  </mapper>
  

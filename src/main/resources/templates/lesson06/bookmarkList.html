@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>즐겨찾기 목록</title>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -20,11 +20,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="bookmark: ${bookmarkList}">
+				<tr th:each="bookmark : ${bookmarkList}">
 					<td th:text="${bookmark.id}">No</td>
 					<td th:text="${bookmark.name}">제목</td>
 					<td>
 						<a th:href="${bookmark.url}" th:text="${bookmark.url}"></a>
+					</td>
+					<td>
+						<button type="button" id="deleteBtn" class="btn btn-danger">삭제</button>
 					</td>
 				</tr>
 			</tbody>

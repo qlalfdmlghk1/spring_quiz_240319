@@ -12,7 +12,9 @@ public interface BookmarkMapper {
 	
 	public List<Bookmark> selectBookmarkList();
 	
-	public int insertBookmark(
+	public void insertBookmark(
 			@Param("name") String name,
 			@Param("url") String url);
+	
+	public boolean isDuplicationByUrl(String url);
 }

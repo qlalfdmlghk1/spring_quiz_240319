@@ -25,4 +25,8 @@ public class BookmarkBO {
 	public void addBookmark(String name, String url) {
 		bookmarkMapper.insertBookmark(name, url);
 	}
+	
+	public boolean isDuplicationByUrl(String url) {
+		return bookmarkMapper.isDuplicationByUrl(url);
+	}
 }
