@@ -10,4 +10,8 @@ import com.quiz.booking.domain.Booking;
 public interface BookingMapper {
 	
 	public List<Booking> selectBookingList();
+	
+	public int deleteBookingById(int id);
+	
+	public int insertBooking(String name, String date, int day, int headcount, String phoneNumber);
 }

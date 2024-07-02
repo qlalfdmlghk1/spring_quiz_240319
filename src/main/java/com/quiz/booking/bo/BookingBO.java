@@ -17,4 +17,12 @@ public class BookingBO {
 	public List<Booking> getBookingList() {
 		return bookingMapper.selectBookingList(); // 컨트롤러한테 전달
 	}
+	
+	public int deleteBookingById(int id) {
+		return bookingMapper.deleteBookingById(id);
+	}
+	
+	public void addBooking(String name, String date, int day, int headcount, String phoneNumber) {
+		bookingMapper.insertBooking(name, date, day, headcount, phoneNumber);
+	}
 }
