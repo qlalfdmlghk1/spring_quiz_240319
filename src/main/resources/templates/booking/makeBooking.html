@@ -8,6 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+>>>>>>> origin/develop
 	<link rel="stylesheet" type="text/css" href="/css/booking/style.css">
 </head>
 <body>
@@ -54,5 +60,76 @@
 	        </small>
 	    </footer>
 	</div>
+<<<<<<< HEAD
 </body>
+=======
+	<script>
+		$(document).ready(function() {
+			// datepicker 날짜 선택
+			$("#date").datepicker({
+				dateFormat:"yy-mm-dd"
+				, minDate:0
+			});
+			
+			// 예약하기
+			$("#makeBookingBtn").on('click', function() {
+				// alert("예약")
+				let name = $("#name").val().trim();
+				let date = $("#date").val();
+				let day = $("#day").val().trim();
+				let headcount = $("#headcount").val().trim();
+				let phoneNumber = $("#phoneNumber").val().trim();
+				
+				if (!name) {
+					alert("이름을 입력하세요");
+					return;
+				}
+				if (!date) {
+					alert("날짜를 입력하세요");
+					return;
+				}
+				if (!day) {
+					alert("숙박일을 입력하세요");
+					return;
+				}
+				if (!headcount) {
+					alert("숙박인원을 입력하세요");
+					return;
+				}
+				if (!phoneNumber) {
+					alert("전화번호를 입력하세요");
+					return;
+				}
+				
+				console.log(name);
+				console.log(date);
+				console.log(day);
+				console.log(headcount);
+				console.log(phoneNumber);
+				
+				$.ajax({
+					// request
+					type:"post"
+					,url:"/booking/make-booking"
+					,data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber}
+				
+					// response
+					, success:function(data) {
+						// {"code":200, "result":"성공"}
+						if (data.result == "성공") {
+							alert("예약되었습니다.");
+							// 목록으로 이동
+							location.href = "/booking/booking-list-view";
+						}
+					}
+					, error:function(error) {
+						alert("예약하는데 실패했습니다.");
+					}
+				});
+			});
+		})
+	</script>
+</body>
+
+>>>>>>> origin/develop
 </html>

@@ -24,7 +24,11 @@
 	        </ul>
 	    </nav>
 	    <section class="banner bg-info">
+<<<<<<< HEAD
             <img id="bannerImage" src="/img/test06_banner1.jpg" alt="banner" width="1110" height="500">
+=======
+            <img id="bannerImage" src="/img/booking1.jpg" alt="banner" width="1110" height="500">
+>>>>>>> origin/develop
         </section>
         <section class="reserve bg-primary d-flex">
             <section class="real-time-reserved col-4 d-flex justify-content-center align-items-center">
@@ -63,5 +67,46 @@
 	        </small>
 	    </footer>
 	</div>
+<<<<<<< HEAD
+=======
+	<script>
+		$(document).ready(function(){
+			// 조회 버튼
+			$("#checkBookingBtn").on('click',function(){
+				let name = $("#name").val().trim();
+				let phoneNumber = $("#phoneNumber").val().trim();
+				
+				if (!name) {
+					alert("이름을 입력하세요");
+					return;
+				}
+				if (!phoneNumber) {
+					alert("전화번호를 입력하세요");
+					return;
+				}
+				
+				$.ajax({ 
+					// request
+					type:"post"
+					,url:"/booking/check-booking"
+					,data:{"name":name, "phoneNumber":phoneNumber} // JSON 형식
+				
+					// response
+					, success:function(data) {
+						// {"code":200, "result":"성공"}
+						if (data.result == "성공") {
+							alert("이름:");
+							
+							
+						}
+					}
+					, error:function(error) {
+						alert("조회하는데 실패했습니다.");
+					}
+			});
+		});	
+	});
+	</script>
+>>>>>>> origin/develop
 </body>
 </html>
