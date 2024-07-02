@@ -10,23 +10,26 @@ import com.quiz.booking.domain.Booking;
 
 @Mapper
 public interface BookingMapper {
-	
+
 	public List<Booking> selectBookingList();
 	
 	public int deleteBookingById(int id);
 	
-<<<<<<< HEAD
-	public int insertBooking(String name, String date, int day, int headcount, String phoneNumber);
-=======
 	public void insertBooking(
 			@Param("name") String name, 
-			@Param("date") LocalDate date, 
+			@Param("date") LocalDate date,
 			@Param("day") int day, 
 			@Param("headcount") int headcount, 
 			@Param("phoneNumber") String phoneNumber);
 	
+	// input:name, phoneNumber
+	// output: List<Booking>
 	public List<Booking> selectBookingListByNamePhoneNumber(
 			@Param("name") String name, 
-			@Param("phoneNumber") String phoneNumber); 
->>>>>>> origin/develop
+			@Param("phoneNumber") String phoneNumber);
 }
+
+
+
+
+

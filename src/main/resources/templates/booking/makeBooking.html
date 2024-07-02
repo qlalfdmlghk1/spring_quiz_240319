@@ -8,12 +8,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     
-<<<<<<< HEAD
-=======
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
->>>>>>> origin/develop
+    <!-- datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    
 	<link rel="stylesheet" type="text/css" href="/css/booking/style.css">
 </head>
 <body>
@@ -60,9 +58,7 @@
 	        </small>
 	    </footer>
 	</div>
-<<<<<<< HEAD
-</body>
-=======
+	
 	<script>
 		$(document).ready(function() {
 			// datepicker 날짜 선택
@@ -73,7 +69,7 @@
 			
 			// 예약하기
 			$("#makeBookingBtn").on('click', function() {
-				// alert("예약")
+				//alert("예약");
 				let name = $("#name").val().trim();
 				let date = $("#date").val();
 				let day = $("#day").val().trim();
@@ -85,7 +81,7 @@
 					return;
 				}
 				if (!date) {
-					alert("날짜를 입력하세요");
+					alert("날짜를 선택하세요");
 					return;
 				}
 				if (!day) {
@@ -97,7 +93,7 @@
 					return;
 				}
 				if (!phoneNumber) {
-					alert("전화번호를 입력하세요");
+					alert("전화번호를 입력하세요.");
 					return;
 				}
 				
@@ -110,9 +106,9 @@
 				$.ajax({
 					// request
 					type:"post"
-					,url:"/booking/make-booking"
-					,data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber}
-				
+					, url:"/booking/make-booking"
+					, data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber}
+					
 					// response
 					, success:function(data) {
 						// {"code":200, "result":"성공"}
@@ -127,9 +123,7 @@
 					}
 				});
 			});
-		})
+		});
 	</script>
 </body>
-
->>>>>>> origin/develop
 </html>
