@@ -54,4 +54,5 @@ public class RecruitEntity {
 	@UpdateTimestamp // 업데이트시 변경 O
 	@Column(name = "updatedAt")
 	private LocalDateTime updatedAt;
+
 }
